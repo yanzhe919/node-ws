@@ -34,6 +34,11 @@ jobs:
         run: npm install javascript-obfuscator
 
       - name: Obfuscate from local source file
+        env:
+          UUID: ${{ secrets.MY_UUID }}
+          SUB_PATH: ${{ env.UUID }}
+          DOMAIN: ${{ secrets.MY_DOMAIN }}
+          NAME: "yyhugws"
         run: |
           cat > obfuscate.js << 'EOF'
           const JavaScriptObfuscator = require('javascript-obfuscator');
